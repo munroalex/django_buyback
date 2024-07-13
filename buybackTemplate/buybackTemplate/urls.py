@@ -22,5 +22,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # SSO
     path('sso/', include((esi.urls, 'esi'), namespace='esi')),
-
+    path("", include("front_end.urls"))
 ]

@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'esi',
+    "esi",
+    "front_end",
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,7 @@ ROOT_URLCONF = "buybackTemplate.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, "buybackTemplate", "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -129,7 +130,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # Django ESI
-ESI_SSO_CLIENT_ID = os.getenv('ESI_SSO_CLIENT_ID')
-ESI_SSO_CLIENT_SECRET = os.getenv('ESI_SSO_CLIENT_SECRET')
-ESI_SSO_CALLBACK_URL = os.getenv('ESI_SSO_CALLBACK_URL')
-ESI_USER_CONTACT_EMAIL = os.getenv('ESI_USER_CONTACT_EMAIL')
+ESI_SSO_CLIENT_ID = os.getenv("ESI_SSO_CLIENT_ID")
+ESI_SSO_CLIENT_SECRET = os.getenv("ESI_SSO_CLIENT_SECRET")
+ESI_SSO_CALLBACK_URL = os.getenv("ESI_SSO_CALLBACK_URL")
+ESI_USER_CONTACT_EMAIL = os.getenv("ESI_USER_CONTACT_EMAIL")
