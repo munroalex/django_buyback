@@ -41,3 +41,5 @@ add to AUTHENTICATION backends
 
 pip install django-eveuniverse
 
+https://saadali18.medium.com/setup-your-django-project-with-celery-celery-beat-and-redis-644dc8a2ac4b
+    up to step Twist:

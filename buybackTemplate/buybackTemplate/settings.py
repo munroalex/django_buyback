@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "front_end",
     "eve_auth",
     "eveuniverse",
+    "django_celery_results",
 ]
 
 MIDDLEWARE = [
@@ -152,3 +153,14 @@ EVE_AUTH_USER_ICON_DEFAULT_SIZE = 24
 EVEUNIVERSE_LOAD_STATIONS = True
 EVEUNIVERSE_LOAD_MARKET_GROUPS = True
 EVEUNIVERSE_LOAD_TYPE_MATERIALS = True
+
+
+# CELERY SETTINGS
+
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_TIMEZONE = 'Asia/Karachi'
+
