@@ -1,0 +1,35 @@
+python -m venv venv
+venv\Scripts\activate.bat
+pip install django
+pip install django-esi
+django-admin startproject buybackTemplate
+cd buybackTemplate
+python manage.py runserver (to test install)
+python manage.py startapp front_end
+add 'esi', to apps in project settings.py
+add to project urls.py
+    import esi.urls
+    urlpatterns = [
+        ....
+        # SSO
+        path('sso/', include((esi.urls, 'esi'), namespace='esi')),
+        ....
+    ]
+add to project settings.py  
+    ESI_SSO_CLIENT_ID = os.getenv('ESI_SSO_CLIENT_ID')
+    ESI_SSO_CLIENT_SECRET = os.getenv('ESI_SSO_CLIENT_SECRET')
+    ESI_SSO_CALLBACK_URL = os.getenv('ESI_SSO_CALLBACK_URL')
+create .env
+add to .env
+    ESI_SSO_CLIENT_ID = "my client id"
+    ESI_SSO_CLIENT_SECRET = "my client secret"
+    ESI_SSO_CALLBACK_URL = "https://example.com/sso/callback"
+
+pip install python-dotenv
+add to settings.py
+    import os
+    from dotenv import load_dotenv
+
+    load_dotenv()
+
+
