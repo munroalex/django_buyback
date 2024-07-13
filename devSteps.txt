@@ -32,4 +32,9 @@ add to settings.py
 
     load_dotenv()
 
+pip install django-eve-auth
+add to installed apps
+    "eve_auth",
 
+add to AUTHENTICATION backends
+    "eve_auth.backends.EveSSOBackend"

@@ -13,12 +13,12 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
-
+from front_end.views import index
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "esi",
     "front_end",
+    "eve_auth",
 ]
 
 MIDDLEWARE = [
@@ -86,6 +87,8 @@ DATABASES = {
     }
 }
 
+# ADDED AUTHENTICATION_BACKENDS
+AUTHENTICATION_BACKENDS = ["eve_auth.backends.EveSSOBackend"]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -134,3 +137,8 @@ ESI_SSO_CLIENT_ID = os.getenv("ESI_SSO_CLIENT_ID")
 ESI_SSO_CLIENT_SECRET = os.getenv("ESI_SSO_CLIENT_SECRET")
 ESI_SSO_CALLBACK_URL = os.getenv("ESI_SSO_CALLBACK_URL")
 ESI_USER_CONTACT_EMAIL = os.getenv("ESI_USER_CONTACT_EMAIL")
+
+# eve auth
+LOGIN_URL = index
+LOGOUT_REDIRECT_URL = index
+LOGIN_REDIRECT_URL = index
