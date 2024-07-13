@@ -38,3 +38,6 @@ add to installed apps
 
 add to AUTHENTICATION backends
     "eve_auth.backends.EveSSOBackend"
+
+pip install django-eveuniverse
+
