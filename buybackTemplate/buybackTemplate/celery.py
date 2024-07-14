@@ -8,7 +8,10 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'basicSetup.settings')
 
 app = Celery('basicSetup')
 app.conf.enable_utc = False
-
+app.conf.ONCE = {
+    "backend": "eveuniverse.backends.DjangoBackend",
+    "settings": {},
+}
 app.config_from_object(settings, namespace='CELERY')
 
 app.autodiscover_tasks()

@@ -42,7 +42,7 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
 
           </li>
-
+          {% if user.is_authenticated %}
           <li class="nav-item">
 
             <a class="nav-link" href="#">Calculator</a>
@@ -69,10 +69,16 @@
 
               <li><a class="dropdown-item" href="#">My Contracts</a></li>
 
-              <li><a class="dropdown-item" href="#">Random</a></li>
+              <li><a class="dropdown-item" href="/eve_auth/logout">Logout</a></li>
 
             </ul>
+            {% else %}
+            <li class="nav-item">
 
+                <a class="nav-link" href="/eve_auth/login">Login</a>
+    
+            </li>
+            {% endif %}
           </li>
 
         </ul>
@@ -95,7 +101,7 @@
 
   <footer>
 
-    <small>© <script>document.write(new Date().getFullYear())</script> Cool Name. All Rights Reserved.</small>
+    <small>© <script>document.write(new Date().getFullYear())</script> Name. All Rights Reserved.</small>
 
   </footer>
 

@@ -87,8 +87,13 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
+    },
+    "sde": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "SDE.sqlite",
     }
-}
+    }
+
 
 # ADDED AUTHENTICATION_BACKENDS
 AUTHENTICATION_BACKENDS = ["eve_auth.backends.EveSSOBackend"]
@@ -154,7 +159,7 @@ EVE_AUTH_USER_ICON_DEFAULT_SIZE = 24
 EVEUNIVERSE_LOAD_STATIONS = True
 EVEUNIVERSE_LOAD_MARKET_GROUPS = True
 EVEUNIVERSE_LOAD_TYPE_MATERIALS = True
-
+EVEUNIVERSE_API_SDE_URL = 'https://sde.eve-o.tech/latest'
 
 # CELERY SETTINGS
 

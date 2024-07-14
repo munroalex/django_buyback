@@ -3,10 +3,14 @@
 {% block title %}{{ context }}{% endblock %}
 
 {% block content %}
-<h1>{{ context }}</h1>
-
+{% if user.is_authenticated %}
 <h1 class="text-3xl font-bold underline">
-  Hello world!
+  Hello {{ user.first_name }} {{ user.last_name }}
 </h1>
+{% else %}
+<h1 class="text-3xl font-bold underline">
+  Hello. Please log in.
+</h1>
+{% endif %}
 <p></p>
 {% endblock %}
