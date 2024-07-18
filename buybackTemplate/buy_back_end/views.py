@@ -11,6 +11,6 @@ import pprint
 def edit_bb_items(request):
     """Display all item types in side menu with Buyback editable options"""
     hierarchy = dict_dicts()
-    pprint.PrettyPrinter(indent=4,sort_dicts=True).pprint(hierarchy)
+    #pprint.PrettyPrinter(indent=4,sort_dicts=True).pprint(hierarchy)
     #print(hierarchy)
     return render(request, 'items.html', {'hierarchy':hierarchy})
