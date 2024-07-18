@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "eveuniverse",
     "django_celery_results",
     "django_celery_beat",
+    "sde",
 ]
 
 MIDDLEWARE = [
@@ -82,7 +83,7 @@ WSGI_APPLICATION = "buybackTemplate.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
+DATABASE_ROUTERS = ['routers.routers.SDERouter',]
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",

@@ -92,9 +92,9 @@ class Ramactivities(models.Model):
     """Model Class representing Industry Activity Types"""
     activityid = models.AutoField(db_column='activityID', primary_key=True)
     activityname = models.CharField(
-        db_column='activityName', blank=True, null=True)
-    iconno = models.CharField(db_column='iconNo', blank=True, null=True)
-    description = models.CharField(blank=True, null=True)
+        db_column='activityName', blank=True, null=True, max_length=150)
+    iconno = models.CharField(db_column='iconNo', blank=True, null=True, max_length=150)
+    description = models.CharField(blank=True, null=True, max_length=150)
     published = models.BooleanField(blank=True, null=True)
 
     class Meta:

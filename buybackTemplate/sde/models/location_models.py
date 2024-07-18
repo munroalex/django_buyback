@@ -26,7 +26,7 @@ class Stastations(models.Model):
         db_column='constellationID', blank=True, null=True)
     regionid = models.IntegerField(db_column='regionID', blank=True, null=True)
     stationname = models.CharField(
-        db_column='stationName', blank=True, null=True)
+        db_column='stationName', blank=True, null=True, max_length=150)
     x = models.FloatField(blank=True, null=True)
     y = models.FloatField(blank=True, null=True)
     z = models.FloatField(blank=True, null=True)
@@ -51,7 +51,7 @@ class Mapsolarsystems(models.Model):
     solarsystemid = models.AutoField(
         db_column='solarSystemID', primary_key=True)
     solarsystemname = models.CharField(
-        db_column='solarSystemName', blank=True, null=True)
+        db_column='solarSystemName', blank=True, null=True, max_length=150)
     x = models.FloatField(blank=True, null=True)
     y = models.FloatField(blank=True, null=True)
     z = models.FloatField(blank=True, null=True)
@@ -76,7 +76,7 @@ class Mapsolarsystems(models.Model):
     suntypeid = models.IntegerField(
         db_column='sunTypeID', blank=True, null=True)
     securityclass = models.CharField(
-        db_column='securityClass', blank=True, null=True)
+        db_column='securityClass', blank=True, null=True, max_length=150)
 
     class Meta:
         """Metadata Options"""
@@ -102,14 +102,14 @@ class Mapsolarsystemjumps(models.Model):
         """Metadata Options"""
         managed = False
         db_table = 'mapSolarSystemJumps'
-        unique_together = ['fromSolarSystemID', 'toSolarSystemID']
+        unique_together = ['fromsolarsystemid', 'tosolarsystemid']
 
 
 class Mapregions(models.Model):
     """Model Class representing Regions"""
     regionid = models.AutoField(db_column='regionID', primary_key=True)
     regionname = models.CharField(
-        db_column='regionName', blank=True, null=True)
+        db_column='regionName', blank=True, null=True, max_length=150)
     x = models.FloatField(blank=True, null=True)
     y = models.FloatField(blank=True, null=True)
     z = models.FloatField(blank=True, null=True)
@@ -136,7 +136,7 @@ class Mapconstellations(models.Model):
     constellationid = models.AutoField(
         db_column='constellationID', primary_key=True)
     constellationname = models.CharField(
-        db_column='constellationName', blank=True, null=True)
+        db_column='constellationName', blank=True, null=True, max_length=150)
     x = models.FloatField(blank=True, null=True)
     y = models.FloatField(blank=True, null=True)
     z = models.FloatField(blank=True, null=True)

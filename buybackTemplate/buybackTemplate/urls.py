@@ -18,10 +18,13 @@ from django.contrib import admin
 from django.urls import include, path
 import esi.urls
 
+
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     # SSO
     path('sso/', include((esi.urls, 'esi'), namespace='esi')),
     path("eve_auth/", include("eve_auth.urls")),
-    path("", include("front_end.urls"))
+    path("", include("front_end.urls")),
+    path("items/", include("buy_back_end.urls"))
 ]

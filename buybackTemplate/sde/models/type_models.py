@@ -6,7 +6,7 @@ from django.db import models
 class Invcategories(models.Model):
     """Model Class representing Item Type Categories"""
     categoryid = models.AutoField(db_column='categoryID', primary_key=True)
-    categoryname = models.CharField(db_column='categoryName', )
+    categoryname = models.CharField(db_column='categoryName', max_length=150)
     iconid = models.IntegerField(db_column='iconID', null=True)
     published = models.BooleanField(null=True)
 
@@ -20,7 +20,7 @@ class Invgroups(models.Model):
     """Model Class representing Inventory Item Groups"""
     groupid = models.AutoField(db_column='groupID', primary_key=True)
     categoryid = models.IntegerField(db_column='categoryID', null=True)
-    groupname = models.CharField(db_column='groupName')
+    groupname = models.CharField(db_column='groupName', max_length=150)
     iconid = models.IntegerField(db_column='iconID', null=True)
     usebaseprice = models.BooleanField(db_column='useBasePrice', null=True)
     anchored = models.BooleanField(null=True)
@@ -55,8 +55,8 @@ class Invmarketgroups(models.Model):
     marketgroupid = models.AutoField(
         db_column='marketGroupID', primary_key=True)
     parentgroupid = models.IntegerField(db_column='parentGroupID', null=True)
-    marketgroupname = models.CharField(db_column='marketGroupName')
-    description = models.CharField(null=True)
+    marketgroupname = models.CharField(db_column='marketGroupName', max_length=150)
+    description = models.CharField(null=True, max_length=150)
     iconid = models.IntegerField(db_column='iconID', null=True)
     hastypes = models.BooleanField(db_column='hasTypes', null=True)
 
@@ -69,8 +69,8 @@ class Invmarketgroups(models.Model):
 class Invmetagroups(models.Model):
     """Model Class representing Inventory Item Meta Groups"""
     metagroupid = models.AutoField(db_column='metaGroupID', primary_key=True)
-    metagroupname = models.CharField(db_column='metaGroupName')
-    description = models.CharField(null=True)
+    metagroupname = models.CharField(db_column='metaGroupName', max_length=150)
+    description = models.CharField(null=True, max_length=150)
     iconid = models.IntegerField(db_column='iconID', null=True)
 
     class Meta:
@@ -94,7 +94,7 @@ class Invmetatypes(models.Model):
 class Invnames(models.Model):
     """Model Class representing Inventory Item Names"""
     itemid = models.AutoField(db_column='itemID', primary_key=True)
-    itemname = models.CharField(db_column='itemName')
+    itemname = models.CharField(db_column='itemName', max_length=150)
 
     class Meta:
         """Metadata Options"""
@@ -134,7 +134,7 @@ class Invtypes(models.Model):
     """Model Class representing Inventory Item Types"""
     typeid = models.AutoField(db_column='typeID', primary_key=True)
     groupid = models.IntegerField(db_column='groupID', null=True)
-    typename = models.CharField(db_column='typeName', null=True)
+    typename = models.CharField(db_column='typeName', null=True, max_length=150)
     description = models.TextField(null=True)
     mass = models.FloatField(null=True)
     volume = models.FloatField(null=True)

@@ -27,7 +27,8 @@
 
       <a class="navbar-brand" href="#">Cool Buyback Name</a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 
         <span class="navbar-toggler-icon"></span>
 
@@ -73,12 +74,12 @@
 
             </ul>
             {% else %}
-            <li class="nav-item">
+          <li class="nav-item">
 
-                <a class="nav-link" href="/eve_auth/login">Login</a>
-    
-            </li>
-            {% endif %}
+            <a class="nav-link" href="/eve_auth/login">Login</a>
+
+          </li>
+          {% endif %}
           </li>
 
         </ul>
@@ -93,7 +94,10 @@
 
     <section></section>
 
-    <section>  {% block content %}{% endblock %}  </section>
+    <section> 
+      {% block content %}
+      {% endblock %} 
+    </section>
 
     <section></section>
 
@@ -101,7 +105,9 @@
 
   <footer>
 
-    <small>© <script>document.write(new Date().getFullYear())</script> Name. All Rights Reserved.</small>
+    <small>©
+      <script>document.write(new Date().getFullYear())</script> Name. All Rights Reserved.
+    </small>
 
   </footer>
 
@@ -111,4 +117,3 @@
 </body>
 
 </html>
-      
