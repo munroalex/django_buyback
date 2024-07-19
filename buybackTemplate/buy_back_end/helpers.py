@@ -1,6 +1,7 @@
 """Helper functions for Buyback backend"""
+
 from typing import Dict, Union
-#import pprint
+import pprint
 from sde.models import Invmarketgroups
 
 
@@ -16,7 +17,7 @@ def dict_dicts() -> Dict[str, Union[str, int, None]]:
         if not group.parentgroupid:
             market_hierarchy[group.marketgroupname] = group.marketgroupid
     recurse_dicts(market_groups, market_hierarchy)
-    #pprint.PrettyPrinter(indent=4,sort_dicts=True).pprint(market_hierarchy)
+    pprint.PrettyPrinter(indent=4,sort_dicts=True).pprint(market_hierarchy)
     return market_hierarchy
 
 def recurse_dicts(market_groups, mark_dict) -> Dict[str, Union[str, int, None]]:
@@ -31,9 +32,17 @@ def recurse_dicts(market_groups, mark_dict) -> Dict[str, Union[str, int, None]]:
 
             for group in market_groups:
                 if group.parentgroupid == v:
-                    return_dict[group.marketgroupname] = group.marketgroupid
+                    inner_dict = {}
+                    inner_dict['name'] = group.marketgroupname.replace("'","")
+                    inner_dict['id'] = group.marketgroupid
+                    inner_dict['hastypes'] = group.hastypes
+
+                    return_dict[group.marketgroupname] = inner_dict
             recurse_dicts(market_groups, return_dict)
             mark_dict[k] = return_dict
 
             
     return mark_dict
+
+def is_child():
+    

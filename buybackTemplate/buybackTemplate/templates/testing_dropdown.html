@@ -1,0 +1,49 @@
+{% extends "base.html" %} 
+{% block content %} 
+{% for group1 in groups %}
+            <p>
+                    <button
+                        class="btn btn-dark btn-block"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne{{ k1|cut:' ' }}"
+                        aria-expanded="false"
+                        aria-controls="collapseOne{{ k1|cut:' ' }}"
+                    >
+                        {% if not group1.parentgroupid %} 
+                                {{group1.marketgroupname}} 
+                        {% endif %}
+                    </button>
+            </p>
+            <div
+                        class="collapse"
+                        style="padding-left: 25px"
+                        id="collapseOne{{ k1|cut:' ' }}"
+                        >
+                        {% for group2 in groups %} 
+                                    {% if group2.hastypes == "TRUE" %} 
+                                            {% for type in types %} 
+                                                    {% if type.marketgroupid == group2.marketgroupid %}
+                                                            <p>{{type.typename}}</p>
+                                                    {% endif %} 
+                                            {% endfor %} 
+                                    {% else %}
+                                            <p>
+                                                <button
+                                                class="btn btn-secondary btn-block"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#collapseTwo{{ k2|cut:' ' }}"
+                                                aria-expanded="false"
+                                                aria-controls="collapseTwo{{ k2|cut:' ' }}"
+                                                >
+                                                {% if group2.parentgroupid == group1.marketgroupid %}
+                                                        {{group2.marketgroupname}} 
+                                                {% endif %}
+                                                </button>
+                                            </p>
+                                    {% endif %}
+                        {% endfor %} 
+            </div>
+{% endfor %} 
+{% endblock %}

@@ -1,72 +1,11 @@
 {% extends "base.html" %} {% block content %}
-<div class="container-fluid">
-  <div class="row flex-nowrap">
-    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-      <div
-        class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"
-      >
-        <a
-          href="/"
-          class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
-        >
-          <span class="fs-5 d-none d-sm-inline">Item Groups</span>
-        </a>
+{% regroup groups by groups.parentgroupid as hierarchy %}
+<ul>
+{% for group in hierarchy %}
 
-        <!--Start Accordion Here-->
+<li>group</li>
 
-        <div class="accordion" id="accordion1">
-          <div class="accordion-group">
-            {% for k1, v1 in hierarchy.items %}
-            <h2 class="accordion-header-{{k1}}">
-              <button
-                class="accordion-button"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseOne-{{k1}}"
-                aria-expanded="true"
-                aria-controls="collapseOne-{{k1}}"
-              >
-                {{k1}}
-              </button>
-            </h2>
 
-            <div id="collapseOne-{{k1}}" class="accordion-body collapse">
-              <div class="accordion-inner">
-                <!-- Here we insert another nested accordion -->
-
-                <div class="accordion" id="accordion2">
-                  <div class="accordion-group">
-                    {% for k2, v2 in v1.items %}
-
-                    <h2 class="accordion-header-{{k2}}">
-                      <button
-                        class="accordion-button"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseInnerOne-{{k2}}"
-                        aria-expanded="true"
-                        aria-controls="collapseInnerOne-{{k2}}"
-                      >
-                        {{k2}}
-                      </button>
-                    </h2>
-
-                    <div
-                      id="collapseInnerOne-{{k2}}"
-                      class="accordion-body collapse in"
-                    >
-                      <div class="accordion-inner">Test</div>
-                    </div>
-                    {% endfor %}
-                  </div>
-                </div>
-              </div>
-            </div>
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+{% endfor %}
+</ul>
 {% endblock %}
